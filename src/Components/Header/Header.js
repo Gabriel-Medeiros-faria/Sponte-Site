@@ -37,6 +37,7 @@ const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 99;
 `;
 const SiteName = styled.div`
   font-size: 40px;
@@ -64,5 +65,6 @@ const InputProduct = styled.div`
     height: 45px;
     background: #ffffff;
     border-radius: 8px;
+    font-size: 20px;
   }
 `;

@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Product(props) {
-  const { image, title, value, description } = props;
+  const { image, title, value, description, id } = props;
+  const navigate = useNavigate()
 
   return (
     <>
-      <ProductContainer>
+      <ProductContainer onClick={()=> navigate(`/Product/${id}`)}>
         <Title>{title}</Title>
         <div>
         <img src={image} />
@@ -27,6 +29,7 @@ const ProductContainer = styled.div`
   margin-bottom: 15px;
   position: relative;
   cursor: pointer;
+  border-radius: 10px;
   img {
     width: 200px;
     margin-right: 10px;
@@ -47,6 +50,7 @@ const Title = styled.div`
 const Value = styled.div`
   position: absolute;
   bottom: 15px;
+  right: 20px;
   color: white;
 `;
 const Description = styled.div`

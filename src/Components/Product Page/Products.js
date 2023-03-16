@@ -5,13 +5,12 @@ import { ProductContext } from "../../Context/Products";
 import Product from "./Product";
 
 export default function Products() {
-  const { Products } = useContext(ProductContext);
-
+  const { Products, setLoadingProducts } = useContext(ProductContext);
   return (
     <>
       <ProductsContainer>
         <Link to={"/addProduct"}>
-          <AddProduct>Adicionar produto</AddProduct>
+          <AddProduct onClick={()=> setLoadingProducts(false)}>Adicionar produto</AddProduct>
         </Link>
         {Products.map((obj) => {
           return (
@@ -21,6 +20,7 @@ export default function Products() {
                 title={obj.title}
                 value={obj.value}
                 description={obj.description}
+                id={obj.id}
               />
             </>
           );

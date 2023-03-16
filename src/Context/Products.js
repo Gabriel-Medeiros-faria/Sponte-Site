@@ -7,6 +7,7 @@ function ProductProvider({children}){
 
     const [Products, setProducts] = useState([]);
     const [emptyProducts, setEmptyProducts] = useState([])
+    const [loadingProducts, setLoadingProducts] = useState(false)
   useEffect(() => {
     axios
       .get("http://localhost:1234/Products")
@@ -15,10 +16,10 @@ function ProductProvider({children}){
         setEmptyProducts(resp.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [loadingProducts]);
 
     return(
-        <ProductContext.Provider value={{Products, emptyProducts, setProducts, setEmptyProducts}}>
+        <ProductContext.Provider value={{Products, emptyProducts, setProducts, setEmptyProducts, setLoadingProducts}}>
             {children}
         </ProductContext.Provider>
     )
