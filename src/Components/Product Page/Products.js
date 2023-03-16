@@ -1,17 +1,51 @@
-import styled from "styled-components"
-import Product from "./Product"
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { ProductContext } from "../../Context/Products";
+import Product from "./Product";
 
-export default function Products(){
-    return(
-        <>
-            <ProductsContainer>
-                <Product/>
-            </ProductsContainer>
-        </>
-    )
+export default function Products() {
+  const { Products } = useContext(ProductContext);
+
+  return (
+    <>
+      <ProductsContainer>
+        <Link to={"/addProduct"}>
+          <AddProduct>Adicionar produto</AddProduct>
+        </Link>
+        {Products.map((obj) => {
+          return (
+            <>
+              <Product
+                image={obj.image}
+                title={obj.title}
+                value={obj.value}
+                description={obj.description}
+              />
+            </>
+          );
+        })}
+      </ProductsContainer>
+    </>
+  );
 }
 
 const ProductsContainer = styled.div`
-display: flex;
-justify-content: center;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const AddProduct = styled.div`
+  background-color: #1877f2;
+  color: white;
+  width: 500px;
+  height: 40px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+`;

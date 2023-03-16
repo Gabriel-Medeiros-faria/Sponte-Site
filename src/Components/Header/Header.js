@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { ProductContext } from "../../Context/Products";
 
 export default function Header() {
+
+  const {Products, emptyProducts, setProducts} = useContext(ProductContext)
+
+  function Search(value){
+    if(value === ""){
+      setProducts(emptyProducts)
+      return
+    }
+    let newArrProducts = Products.filter(({title})=>title.toLowerCase().includes(value.toLowerCase()))
+    setProducts(newArrProducts)
+  }
   return (
     <>
       <HeaderContainer>
@@ -8,7 +21,7 @@ export default function Header() {
           <p>Sponte</p>
         </SiteName>
         <InputProduct>
-          <input placeholder="Procure pelo produto"></input>
+          <input placeholder="Procure pelo produto" onChange={(e)=> Search(e.target.value)}></input>
         </InputProduct>
       </HeaderContainer>
     </>
