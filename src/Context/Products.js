@@ -19,7 +19,7 @@ function ProductProvider({children}){
   }, [loadingProducts]);
 
     return(
-        <ProductContext.Provider value={{Products, emptyProducts, setProducts, setEmptyProducts, setLoadingProducts}}>
+        <ProductContext.Provider value={{Products, emptyProducts, setProducts, setEmptyProducts, setLoadingProducts, loadingProducts}}>
             {children}
         </ProductContext.Provider>
     )

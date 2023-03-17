@@ -1,4 +1,5 @@
 import axios from "axios";
+import dayjs from "dayjs";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
@@ -16,15 +17,17 @@ export default function InputBox() {
   const [image, setImage] = useState(0);
   const [category, setCategory] = useState("");
   const {setLoadingProducts} = useContext(ProductContext)
+  const barCode = (Math.floor(Math.random() * 999999999999))
+  const toDay = dayjs().format('DD/MM/YYYY')
   const body = {
     title,
     description,
-    measure: {
       height,
       width,
       length,
-    },
     weight,
+    barCode,
+    dateAcquisition: toDay,
     value,
     image,
     category,
