@@ -8,6 +8,7 @@ function ProductProvider({children}){
     const [Products, setProducts] = useState([]);
     const [emptyProducts, setEmptyProducts] = useState([])
     const [loadingProducts, setLoadingProducts] = useState(false)
+
   useEffect(() => {
     axios
       .get("http://localhost:1234/Products")

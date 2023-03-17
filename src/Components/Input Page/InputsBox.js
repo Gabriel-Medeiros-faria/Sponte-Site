@@ -4,6 +4,9 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { ProductContext } from "../../Context/Products";
+import { HiArrowUturnLeft } from "react-icons/hi2";
+import * as Yup from "yup"
+import { Formik, Form } from "formik";
 
 export default function InputBox() {
   const navigate = useNavigate();
@@ -47,6 +50,7 @@ export default function InputBox() {
   return (
     <>
       <InputBoxContainer>
+      <HiArrowUturnLeft className="arrowBack" onClick={()=> navigate("/")}/>
         <Title>Adicione um produto</Title>
         <form onSubmit={() => addProduct()}>
           <input
@@ -111,15 +115,25 @@ export default function InputBox() {
 }
 
 const InputBoxContainer = styled.div`
+
+@media (max-width:700px){
+    width: 100%;
+}
   form {
     display: flex;
     flex-direction: column;
+    @media (max-width:700px){
+    width: 100%;
+}
   }
   input {
     margin-bottom: 10px;
     padding: 20px;
     border-radius: 5px;
     font-size: 20px;
+    @media (max-width:700px){
+    width: 100%;
+}
   }
   button {
     background-color: #1877f2;
@@ -135,6 +149,21 @@ const InputBoxContainer = styled.div`
     cursor: pointer;
     border: none;
     font-size: 20px;
+    @media (max-width:700px){
+    width: 100%;
+}
+  }
+  .arrowBack{
+    color: white;
+    font-size: 25px ;
+    position: fixed;
+    left: 100px;
+    cursor: pointer;
+    @media (max-width:700px){
+    top: 30px;
+    left: 30px;
+    z-index:1000000000;
+}
   }
   width: 100%;
   height: 100%;

@@ -53,6 +53,9 @@ const ProductContainer = styled.div`
   position: relative;
   cursor: pointer;
   border-radius: 10px;
+  @media (max-width:700px){
+    width: 100%;
+}
   img {
     width: 200px;
     height: 200px;
@@ -68,8 +71,8 @@ const ProductContainer = styled.div`
   .Trash {
     color: white;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     z-index: 10000;
   }
 `;

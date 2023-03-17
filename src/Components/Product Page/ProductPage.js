@@ -71,6 +71,9 @@ const ProductPageContainer = styled.div`
   align-items: center;
   border-radius: 5px;
   padding: 10px;
+  @media (max-width:700px){
+    width: 100%;
+}
 `;
 
 const ImageAndCaracter = styled.div`
@@ -79,11 +82,17 @@ const ImageAndCaracter = styled.div`
   padding: 50px;
   margin-bottom: 30px;
   width: 70%;
+  @media (max-width:700px){
+    width: 100%;
+}
   img {
     width: 270px;
     height: 300px;
     border-radius: 5px;
     margin-right: 30px;
+    @media (max-width:700px){
+    width: 100%;
+}
   }
 `;
 const Caracter = styled.div`

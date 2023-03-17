@@ -4,13 +4,15 @@ import styled from "styled-components";
 import { ProductContext } from "../../Context/Products";
 import Product from "./Product";
 
-export default function Products() {
+export default function ProductsList() {
   const { Products, setLoadingProducts } = useContext(ProductContext);
   return (
     <>
       <ProductsContainer>
         <Link to={"/addProduct"}>
-          <AddProduct onClick={()=> setLoadingProducts(false)}>Adicionar produto</AddProduct>
+          <AddProduct onClick={() => setLoadingProducts(false)}>
+            Adicionar produto
+          </AddProduct>
         </Link>
         {Products.map((obj) => {
           return (
@@ -34,6 +36,7 @@ const ProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
 const AddProduct = styled.div`
@@ -47,5 +50,9 @@ const AddProduct = styled.div`
   align-items: center;
   border-radius: 5px;
   margin-bottom: 15px;
+  font-size: 20px;
   cursor: pointer;
+  @media (max-width:700px){
+    width: 350px;
+}
 `;
