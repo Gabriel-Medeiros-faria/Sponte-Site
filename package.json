@@ -25,6 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "cypress": "./node_modules/.bin/cypress open",
     "json": "json-server --watch db.json --port 1234"
   },
   "eslintConfig": {
