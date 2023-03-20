@@ -3,25 +3,45 @@ import styled from "styled-components";
 import { ProductContext } from "../../Context/Products";
 
 export default function Header() {
+  const {
+    Products,
+    emptyProducts,
+    setProducts,
+    setLoadingProducts,
+    loadingProducts,
+  } = useContext(ProductContext);
 
-  const {Products, emptyProducts, setProducts} = useContext(ProductContext)
-
-  function Search(value){
-    if(value === ""){
-      setProducts(emptyProducts)
-      return
+  function Search(value) {
+    if (value === "") {
+      setProducts(emptyProducts);
+      return;
     }
-    let newArrProducts = Products.filter(({title})=>title.toLowerCase().includes(value.toLowerCase()))
-    setProducts(newArrProducts)
+    let newArrProducts = Products.filter(({ title }) =>
+      title.toLowerCase().includes(value.toLowerCase())
+    );
+    setProducts(newArrProducts);
   }
+
+  function DeleteProduct() {
+    if (loadingProducts) {
+      setLoadingProducts(false);
+    }
+    if (!loadingProducts) {
+      setLoadingProducts(true);
+    }
+  }
+
   return (
     <>
       <HeaderContainer>
         <SiteName>
-          <p>Sponte</p>
+          <p onClick={() => DeleteProduct()}>Sponte</p>
         </SiteName>
         <InputProduct>
-          <input placeholder="Procure pelo produto" onChange={(e)=> Search(e.target.value)}></input>
+          <input
+            placeholder="Procure pelo produto"
+            onChange={(e) => Search(e.target.value)}
+          ></input>
         </InputProduct>
       </HeaderContainer>
     </>
@@ -46,14 +66,15 @@ const SiteName = styled.div`
   margin-left: 30px;
   animation: float 2s ease-in-out infinite;
   cursor: pointer;
-  @keyframes float{
-    0%,100%{
-        transform: translateY(0);
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
     }
-    50%{
-        transform: translateY(-10px);
+    50% {
+      transform: translateY(-10px);
     }
-  };
+  } ;
 `;
 
 const InputProduct = styled.div`

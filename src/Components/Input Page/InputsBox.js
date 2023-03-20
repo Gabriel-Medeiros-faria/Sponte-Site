@@ -69,7 +69,6 @@ export default function InputBox() {
     axios
       .post("http://localhost:1234/Products", body)
       .then((resp) => {
-        console.log(resp);
         setLoadingProducts(true);
       })
       .catch((err) => console.log(err));
@@ -87,6 +86,7 @@ export default function InputBox() {
               <Field
                 placeholder="Nome do produto"
                 name="name"
+                data-cy='name'
                 onChange={(event) => {
                   formik.handleChange(event);
                   setTitle(event.target.value);
@@ -96,6 +96,7 @@ export default function InputBox() {
               <Field
                 placeholder="Descrição do produto"
                 name="description"
+                data-cy='description'
                 onChange={(event) => {
                   formik.handleChange(event);
                   setDescription(event.target.value);
@@ -105,6 +106,7 @@ export default function InputBox() {
               <Field
                 placeholder="Altura do produto"
                 name="height"
+                data-cy='height'
                 type="number"
                 onChange={(event) => {
                   formik.handleChange(event);
@@ -115,6 +117,7 @@ export default function InputBox() {
               <Field
                 placeholder="Largura do produto"
                 name="width"
+                data-cy='width'
                 type="number"
                 onChange={(event) => {
                   formik.handleChange(event);
@@ -125,6 +128,7 @@ export default function InputBox() {
               <Field
                 placeholder="Comprimento do produto"
                 name="length"
+                data-cy='length'
                 type="number"
                 onChange={(event) => {
                   formik.handleChange(event);
@@ -135,6 +139,7 @@ export default function InputBox() {
               <Field
                 placeholder="Peso do produto"
                 name="weight"
+                data-cy='weight'
                 type="number"
                 onChange={(event) => {
                   formik.handleChange(event);
@@ -145,6 +150,7 @@ export default function InputBox() {
               <Field
                 placeholder="Valor do produto"
                 name="value"
+                data-cy='value'
                 type="number"
                 onChange={(event) => {
                   formik.handleChange(event);
@@ -155,7 +161,7 @@ export default function InputBox() {
               <Field
                 placeholder="Foto do produto"
                 name="image"
-                type="number"
+                data-cy='image'
                 onChange={(event) => {
                   formik.handleChange(event);
                   setImage(event.target.value);
@@ -165,13 +171,14 @@ export default function InputBox() {
               <Field
                 placeholder="Categoria do produto"
                 name="category"
+                data-cy='category'
                 onChange={(event) => {
                   formik.handleChange(event);
                   setCategory(event.target.value);
                 }}
               />
               <ErrorMessage name="category" render={renderErrorMessage}/>
-              <button type="submit">Adicionar produto</button>
+              <button type="submit" data-cy='submit'>Adicionar produto</button>
             </Form>
           )}
         </Formik>

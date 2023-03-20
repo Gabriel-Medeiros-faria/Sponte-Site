@@ -1,18 +1,3 @@
 {
-  "Products": [
-    {
-      "title": "OLhoiasfasdf",
-      "description": "asdfasdf",
-      "height": "2312312",
-      "width": "3123123",
-      "length": "1231231",
-      "weight": "123123",
-      "barCode": 800702426548,
-      "dateAcquisition": "17/03/2023",
-      "value": "23132",
-      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-      "category": "asdfasfasdf",
-      "id": 1
-    }
-  ]
+  "Products": []
 }

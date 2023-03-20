@@ -1,14 +1,27 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useContext } from "react";
+import { ProductContext } from "../../Context/Products";
 
 export default function HeaderInputPage() {
+  const { setLoadingProducts, loadingProducts } = useContext(ProductContext);
+
+  function DeleteProduct() {
+    if (loadingProducts) {
+      setLoadingProducts(false);
+    }
+    if (!loadingProducts) {
+      setLoadingProducts(true);
+    }
+  }
+
   return (
     <>
       <HeaderContainer>
         <Link to={"/"}>
-        <SiteName>
-          <p>Sponte</p>
-        </SiteName>
+          <SiteName>
+            <p onClick={() => DeleteProduct()}>Sponte</p>
+          </SiteName>
         </Link>
       </HeaderContainer>
     </>
@@ -33,12 +46,13 @@ const SiteName = styled.div`
   font-weight: 900;
   animation: float 2s ease-in-out infinite;
   cursor: pointer;
-  @keyframes float{
-    0%,100%{
-        transform: translateY(0);
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
     }
-    50%{
-        transform: translateY(-10px);
+    50% {
+      transform: translateY(-10px);
     }
-  };
+  } ;
 `;

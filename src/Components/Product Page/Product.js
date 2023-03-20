@@ -14,7 +14,6 @@ export default function Product(props) {
     axios
       .delete(`http://localhost:1234/Products/${id}`)
       .then((resp) => {
-        console.log(resp);
         if (loadingProducts) {
           setLoadingProducts(false);
         }

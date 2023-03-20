@@ -11,9 +11,6 @@ export default function ProductPage() {
     axios
       .get(`http://localhost:1234/Products/${id}`)
       .then((resp) => {
-        {
-          console.log(resp);
-        }
         setProduct(resp.data);
       })
       .catch((err) => console.log(err));
